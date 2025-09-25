@@ -1,2 +1,50 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<!-- Hero Section -->
+<div class="text-center py-5">
+  <div class="mx-auto rounded-circle overflow-hidden" style="width: 100px; height: 100px;">
+    <%= image_tag "your_profile.jpg", class: "w-100 h-100 object-fit-cover rounded-circle" %>
+  </div>
+  <h1 class="mt-3 fw-bold">Curated by Helene Gaspar</h1>
+  <p class="text-muted">Founder of Dropby Store · Curated Vintage Finds</p>
+  <button class="btn btn-dark mt-2">Follow Store</button>
+</div>
+
+<!-- Tabs / Navigation -->
+<ul class="nav justify-content-center border-bottom mb-4">
+  <li class="nav-item">
+    <a class="nav-link active fw-bold border-bottom border-dark" href="#">All Items</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="#">Jackets</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="#">Dresses</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="#">Accessories</a>
+  </li>
+</ul>
+
+<!-- Items Grid -->
+<div class="container">
+  <div class="row g-4">
+    <% @items.each do |item| %>
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card h-100 shadow-sm">
+          <% if item.photos.attached? %>
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.photos.first.variant(resize_to_limit: [600, 600]), class: "card-img-top" %>
+            <% end %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= link_to item.title, item_path(item), class: "text-decoration-none text-dark" %>
+            </h5>
+            <p class="card-text text-muted">
+              <%= number_to_currency(item.price_cents / 100.0, unit: "€") %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
