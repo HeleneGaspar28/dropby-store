@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_name: MyString
+  customer_email: MyString
+  shipping_address: MyText
+  shipping_postal_code: MyString
+  shipping_city: MyString
+  shipping_country: MyString
+  status: MyString
+  stripe_session_id: MyString
+
+two:
+  customer_name: MyString
+  customer_email: MyString
+  shipping_address: MyText
+  shipping_postal_code: MyString
+  shipping_city: MyString
+  shipping_country: MyString
+  status: MyString
+  stripe_session_id: MyString
