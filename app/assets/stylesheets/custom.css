@@ -59,3 +59,88 @@ p, body {
   height: 350px;
   object-fit: cover;
 }
+
+/* Show Page Styles */
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.img-thumbnail {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.img-thumbnail:hover {
+  transform: scale(1.05);
+  border-color: #000;
+}
+.item-show-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+.item-image {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-details {
+  background-color: #f8f8f8;
+  padding: 60px;
+  text-align: center; /* center everything by default */
+}
+
+.back-wrapper {
+  text-align: left;   /* only this part is aligned left */
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.back-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+
+
+h1, h2, .brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+p, .price {
+  font-family: 'Inter', sans-serif;
+}
+.shop-button {
+  background-color: #111;
+  color: #fff;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 2px;
+  font-size: 15px;
+}
+
+.shop-button:hover {
+  background-color: rgb(46, 44, 44);
+}
+
+.image-gallery {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.image-gallery img {
+  width: 80px;
+  height: auto;
+  border-radius: 4px;
+  cursor: pointer;
+}

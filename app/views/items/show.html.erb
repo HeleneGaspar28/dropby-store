@@ -1,2 +1,28 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="item-show-container">
+  <!-- LEFT: DETAILS -->
+  <div class="item-details">
+    <div class="back-wrapper">
+      <%= link_to "← Back", items_path, class: "back-link" %>
+    </div>
+
+    <p class="brand">LEVI'S • JACKETS</p>
+    <h1 class="mb-3">Vintage Levi’s Denim Jacket</h1>
+    <p class="description">
+      Classic 80s denim jacket with worn-in look. Crafted from premium materials, curated for Fall 2025. Available in size M, color Blue.
+    </p>
+    <p class="price">€85.00</p>
+    <button class="shop-button">Buy</button>
+  </div>
+
+  <!-- RIGHT: IMAGE -->
+  <div class="item-image">
+    <div>
+      <img src="main-image.jpg" alt="Denim Jacket" class="main-img">
+      <div class="image-gallery">
+        <img src="thumb1.jpg" alt="">
+        <img src="thumb2.jpg" alt="">
+        <img src="thumb3.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
