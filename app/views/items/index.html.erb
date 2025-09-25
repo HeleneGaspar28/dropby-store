@@ -1,26 +1,20 @@
 <!-- Hero Section -->
 <div class="text-center py-5">
-  <div class="mx-auto rounded-circle overflow-hidden" style="width: 100px; height: 100px;">
-    <%= image_tag "your_profile.jpg", class: "w-100 h-100 object-fit-cover rounded-circle" %>
+  <div class="mx-auto rounded-circle overflow-hidden border" style="width: 120px; height: 120px;">
+    <%= image_tag "profile_pic.jpg", class: "w-100 h-100 rounded-circle" %>
   </div>
-  <h1 class="mt-3 fw-bold">Curated by Helene Gaspar</h1>
+  <p class="text-muted mt-3 mb-1">Curated by</p>
+  <h1 class="fw-bold mb-3">Helene Gaspar</h1>
   <p class="text-muted">Founder of Dropby Store · Curated Vintage Finds</p>
-  <button class="btn btn-dark mt-2">Follow Store</button>
 </div>
 
 <!-- Tabs / Navigation -->
 <ul class="nav justify-content-center border-bottom mb-4">
   <li class="nav-item">
-    <a class="nav-link active fw-bold border-bottom border-dark" href="#">All Items</a>
+    <a class="nav-link active" href="#">Closet</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-muted" href="#">Jackets</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-muted" href="#">Dresses</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-muted" href="#">Accessories</a>
+    <a class="nav-link" href="#">Latest finds</a>
   </li>
 </ul>
 
@@ -29,19 +23,20 @@
   <div class="row g-4">
     <% @items.each do |item| %>
       <div class="col-12 col-sm-6 col-md-4">
-        <div class="card h-100 shadow-sm">
-          <% if item.photos.attached? %>
+        <div class="card border-0">
+          <% if item.header_photo.attached? %>
             <%= link_to item_path(item) do %>
-              <%= image_tag item.photos.first.variant(resize_to_limit: [600, 600]), class: "card-img-top" %>
+              <%= image_tag item.header_photo.variant(resize_to_limit: [600, 600]), class: "card-img-top" %>
             <% end %>
+          <% else %>
+            <%= image_tag "https://via.placeholder.com/600", class: "card-img-top" %>
           <% end %>
-          <div class="card-body">
-            <h5 class="card-title">
+          <div class="card-body text-center p-3">
+            <h6 class="fw-bold mb-1">
               <%= link_to item.title, item_path(item), class: "text-decoration-none text-dark" %>
-            </h5>
-            <p class="card-text text-muted">
-              <%= number_to_currency(item.price_cents / 100.0, unit: "€") %>
-            </p>
+            </h6>
+            <p class="text-muted small mb-0"><%= item.brand %> · <%= item.size %></p>
+            <p class="fw-bold mt-2 mb-0"><%= number_to_currency(item.price_cents / 100.0, unit: "€") %></p>
           </div>
         </div>
       </div>

@@ -1,0 +1,61 @@
+/* Hero Section */
+/* Headings (name like Athena Calderone) */
+h1, .curator-name {
+  font-family: 'Playfair Display', serif;
+  color: black;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.1;
+  text-align: center;
+  margin: 0;
+}
+
+/* "Curated by" italic text */
+.curated-by {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+/* Body text (bio line under the name) */
+p, body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+}
+
+
+/* Tabs */
+.nav-link {
+  color: #6c757d;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link.active {
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+/* Cards */
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card-img-top {
+  border-radius: 8px;
+  height: 350px;
+  object-fit: cover;
+}
