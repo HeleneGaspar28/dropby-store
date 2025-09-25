@@ -27,7 +27,7 @@ items = [
     description: "Classic 80s denim jacket with worn-in look.",
     category: "Jackets",
     collection: "Fall 2025",
-    status: "available",
+    status: "for_sale",
     price_cents: 8500,
     header_url: "https://picsum.photos/600/600?random=1",
     photo_urls: [
@@ -43,7 +43,7 @@ items = [
     description: "Elegant vintage silk dress with floral pattern.",
     category: "Dresses",
     collection: "Spring 2025",
-    status: "available",
+    status: "sold",
     price_cents: 12000,
     header_url: "https://picsum.photos/600/600?random=4",
     photo_urls: [

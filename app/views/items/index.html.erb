@@ -23,7 +23,12 @@
   <div class="row g-4">
     <% @items.each do |item| %>
       <div class="col-12 col-sm-6 col-md-4">
-        <div class="card border-0">
+        <div class="card border-0 position-relative">
+
+          <% if item.status == "sold" %>
+            <span class="sold-badge">SOLD</span>
+          <% end %>
+
           <% if item.header_photo.attached? %>
             <%= link_to item_path(item) do %>
               <%= image_tag item.header_photo.variant(resize_to_limit: [600, 600]), class: "card-img-top" %>
@@ -31,12 +36,15 @@
           <% else %>
             <%= image_tag "https://via.placeholder.com/600", class: "card-img-top" %>
           <% end %>
+
           <div class="card-body text-center p-3">
             <h6 class="fw-bold mb-1">
               <%= link_to item.title, item_path(item), class: "text-decoration-none text-dark" %>
             </h6>
             <p class="text-muted small mb-0"><%= item.brand %> · <%= item.size %></p>
-            <p class="fw-bold mt-2 mb-0"><%= number_to_currency(item.price_cents / 100.0, unit: "€") %></p>
+            <p class="fw-bold mt-2 mb-0">
+              <%= number_to_currency(item.price_cents / 100.0, unit: "€") %>
+            </p>
           </div>
         </div>
       </div>

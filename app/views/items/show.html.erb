@@ -11,8 +11,13 @@
       Classic 80s denim jacket with worn-in look. Crafted from premium materials, curated for Fall 2025. Available in size M, color Blue.
     </p>
     <p class="price">€85.00</p>
-    <button class="shop-button">Buy</button>
-  </div>
+
+    <% if @item.status == "sold" %>
+      <span class="badge bg-danger">SOLD</span>
+    <% else %>
+      <%= button_to "Shop now", "#", method: :post, class: "shop-button" %>
+    <% end %>
+    </div>
 
   <!-- RIGHT: IMAGE -->
   <div class="item-image">
