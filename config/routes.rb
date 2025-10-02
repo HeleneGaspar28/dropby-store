@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get "pages/about"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :items, only: [:index, :show]
   resources :orders, only: [:new, :create] # checkout flow
+  get "about", to: "pages#about"
   post "/webhooks/stripe", to: "webhooks#stripe"
 
   root "items#index"

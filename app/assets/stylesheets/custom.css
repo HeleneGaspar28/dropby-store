@@ -28,7 +28,6 @@ p, body {
   text-align: center;
 }
 
-
 /* Tabs */
 .nav-link {
   color: #6c757d;
@@ -74,6 +73,7 @@ p, body {
   transform: scale(1.05);
   border-color: #000;
 }
+
 .item-show-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -109,8 +109,6 @@ p, body {
   text-decoration: underline;
 }
 
-
-
 h1, h2, .brand {
   font-family: 'Playfair Display', serif;
   font-weight: 500;
@@ -119,6 +117,7 @@ h1, h2, .brand {
 p, .price {
   font-family: 'Inter', sans-serif;
 }
+
 .shop-button {
   background-color: #111;
   color: #fff;
@@ -144,6 +143,8 @@ p, .price {
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* SOLD Badge */
 .sold-badge {
   position: absolute;
   top: 10px;
@@ -156,4 +157,70 @@ p, .price {
   border-radius: 4px;
   text-transform: uppercase;
   z-index: 10;
+}
+
+/* ======================= */
+/* New: Items Grid Styling */
+/* ======================= */
+/* Instagram-style grid */
+/* Grid cards */
+.item-card {
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.2s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-2px);
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.item-img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* square images */
+  object-fit: cover;
+}
+
+/* Always visible info under the photo */
+.item-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.item-info p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.item-info .fw-bold {
+  font-size: 0.95rem;
+  color: #000;
+}
+
+.item-info .text-muted {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.item-info .fw-bold.mb-0 {
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* Sold badge */
+.sold-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: gray;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
 }

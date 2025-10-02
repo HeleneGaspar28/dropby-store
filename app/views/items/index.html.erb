@@ -1,11 +1,18 @@
 <!-- Hero Section -->
 <div class="text-center py-5">
-  <div class="mx-auto rounded-circle overflow-hidden border" style="width: 120px; height: 120px;">
+  <div class="mx-auto rounded-circle overflow-hidden border mb-3" style="width: 180px; height: 180px;">
     <%= image_tag "profile_pic.jpg", class: "w-100 h-100 rounded-circle" %>
   </div>
-  <p class="text-muted mt-3 mb-1">Curated by</p>
-  <h1 class="fw-bold mb-3">Drop By</h1>
-  <p class="text-muted">Curated Vintage Finds · Paris</p>
+  <h1 class="fw-bold mb-2">Drop By</h1>
+  <p class="text-muted">Curated Vintage pieces by Helene Gaspar · Paris</p>
+
+  <!-- Instagram Link -->
+  <div class="mt-3">
+    <a href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" class="d-inline-flex align-items-center text-dark text-decoration-none">
+      <i class="bi bi-instagram fs-4 me-2"></i>
+      <span class="fw-semibold">Follow on Instagram</span>
+    </a>
+  </div>
 </div>
 
 <!-- Tabs / Navigation -->
@@ -20,32 +27,29 @@
 
 <!-- Items Grid -->
 <div class="container">
-  <div class="row g-4">
+  <div class="row g-3">
     <% @items.each do |item| %>
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card border-0 position-relative">
-
-          <% if item.status == "sold" %>
-            <span class="sold-badge">SOLD</span>
-          <% end %>
-
+      <div class="col-6 col-md-4">
+        <div class="item-card">
           <% if item.header_photo.attached? %>
-            <%= link_to item_path(item) do %>
-              <%= image_tag item.header_photo.variant(resize_to_limit: [600, 600]), class: "card-img-top" %>
+            <%= link_to item_path(item), class: "item-link" do %>
+              <div class="image-wrapper">
+                <%= image_tag item.header_photo.variant(resize_to_limit: [600, 600]), class: "item-img" %>
+
+                <% if item.status == "sold" %>
+                  <span class="sold-overlay">SOLD</span>
+                <% end %>
+              </div>
+
+              <div class="item-info">
+                <p class="fw-bold mb-1"><%= item.title %></p>
+                <p class="small text-muted mb-0"><%= item.brand %> · <%= item.size %></p>
+                <p class="fw-bold mb-0"><%= number_to_currency(item.price_cents / 100.0, unit: "€") %></p>
+              </div>
             <% end %>
           <% else %>
-            <%= image_tag "https://via.placeholder.com/600", class: "card-img-top" %>
+            <%= image_tag "https://via.placeholder.com/600", class: "item-img" %>
           <% end %>
-
-          <div class="card-body text-center p-3">
-            <h6 class="fw-bold mb-1">
-              <%= link_to item.title, item_path(item), class: "text-decoration-none text-dark" %>
-            </h6>
-            <p class="text-muted small mb-0"><%= item.brand %> · <%= item.size %></p>
-            <p class="fw-bold mt-2 mb-0">
-              <%= number_to_currency(item.price_cents / 100.0, unit: "€") %>
-            </p>
-          </div>
         </div>
       </div>
     <% end %>
